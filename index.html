@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMAC Rastreamento de Veículos Gmac- Login Executivo</title>
-    <meta name="description" content="Área de login executivo para rastreamento de ativos da GMAC Execução de Ativos. Acompanhe o status do seu veículo com exclusividade.">
+    <title>Rastreamento de Veículos GMAC - Login Executivo</title> <meta name="description" content="Área de login executivo para rastreamento de ativos da GMAC Execução de Ativos. Acompanhe o status do seu veículo com exclusividade.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Variáveis de Cor - TEMA GOLD EXECUTIVO REFINADO */
@@ -180,7 +179,7 @@
 <body>
 
     <div class="login-container">
-        <h2><i class="fas fa-search-location" style="color: var(--cor-destaque-gold); margin-right: 12px;"></i>RASTREAMENTO DE ATIVOS</h2>
+        <h2><i class="fas fa-search-location" style="color: var(--cor-destaque-gold); margin-right: 12px;"></i>RASTREAMENTO DE VEÍCULOS GMAC</h2>
         <p class="subtitulo">Insira seu CPF e o Número de Referência do seu Pacto para acompanhar o progresso de sua liquidação.</p>
 
         <form id="trackingForm" action="#" method="POST">
@@ -204,7 +203,7 @@
         <p>&copy; 2024 GMAC EXECUÇÃO DE ATIVOS. Todos os direitos reservados.</p>
     </footer>
 
-        <script>
+    <script>
         document.getElementById('trackingForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
@@ -212,7 +211,6 @@
             const referencia = document.getElementById('referencia').value;
 
             if (cpf && referencia) {
-                // AQUI ESTÁ A MENSAGEM CORRIGIDA:
                 alert('Rastreamento disponível após o pagamento do valor pendente.'); 
                 // Opcional: Limpar os campos após o alert
                 // document.getElementById('cpf').value = '';
@@ -222,6 +220,5 @@
             }
         });
     </script>
-
 </body>
 </html>
