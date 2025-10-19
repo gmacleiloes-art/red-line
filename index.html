@@ -102,4 +102,125 @@
         }
 
         .form-control:focus {
-            
+            border-color: var(--cor-destaque-gold);
+            outline: none;
+            box-shadow: 0 0 0 0.25rem rgba(184, 134, 11, 0.35); /* Sombra de foco mais sutil */
+        }
+
+        .login-button {
+            display: block; /* Garante que ocupe a largura total */
+            background-color: var(--cor-destaque-gold); /* DOURADO */
+            color: white;
+            padding: 16px 35px; /* Mais padding */
+            border: none;
+            border-radius: 30px; /* Botão mais arredondado */
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4); /* Sombra mais profunda */
+        }
+
+        .login-button:hover {
+            background-color: #a07909; /* Dourado mais escuro */
+            transform: translateY(-3px); /* Efeito de "levantar" mais pronunciado */
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.6);
+        }
+
+        .link-cadastro {
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: var(--cor-texto-claro);
+        }
+
+        .link-cadastro a {
+            color: var(--cor-secundaria-bv);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .link-cadastro a:hover {
+            color: var(--cor-destaque-gold); /* Dourado no hover do link */
+            text-decoration: underline;
+        }
+
+        /* Rodapé simplificado e elegante */
+        .footer-login {
+            margin-top: 40px;
+            color: var(--cor-texto-claro);
+            font-size: 0.8em;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 30px 20px;
+                max-width: 90%;
+            }
+            .login-container h2 {
+                font-size: 1.8em;
+            }
+            .login-container .subtitulo {
+                font-size: 1em;
+            }
+            .login-button {
+                padding: 14px 25px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2><i class="fas fa-search-location" style="color: var(--cor-destaque-gold); margin-right: 12px;"></i>RASTREAMENTO DE ATIVOS</h2>
+        <p class="subtitulo">Insira seu CPF e o Número de Referência do seu Pacto para acompanhar o progresso de sua liquidação.</p>
+
+        <form id="trackingForm" action="#" method="POST">
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+            </div>
+            <div class="form-group">
+                <label for="referencia">Número de Referência / Pacto:</label>
+                <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Ex: GMAC-2024-XXXX" required>
+            </div>
+            <button type="submit" class="login-button">RASTREAR AGORA</button>
+        </form>
+
+        <p class="link-cadastro">
+            Ainda não tem um número de referência? <a href="sua-pagina-de-cadastro.html">Inicie seu cadastro aqui</a>.
+        </p>
+    </div>
+
+    <footer class="footer-login">
+        <p>&copy; 2024 GMAC EXECUÇÃO DE ATIVOS. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('trackingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Você pode adicionar aqui uma validação básica dos campos antes do alert
+            const cpf = document.getElementById('cpf').value;
+            const referencia = document.getElementById('referencia').value;
+
+            if (cpf && referencia) {
+                alert('O rastreamento estará disponível após o pagamento antecipado do frete.');
+                // Opcional: Limpar os campos após o alert
+                // document.getElementById('cpf').value = '';
+                // document.getElementById('referencia').value = '';
+            } else {
+                alert('Por favor, preencha todos os campos para rastrear.');
+            }
+        });
+    </script>
+</body>
+</html>
