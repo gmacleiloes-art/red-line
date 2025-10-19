@@ -3,156 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMAC Rastreamento de Ativos - Login</title>
-    <meta name="description" content="Área de login para rastreamento de ativos da GMAC Execução de Ativos. Acompanhe o status do seu veículo.">
+    <title>GMAC Rastreamento de Ativos - Login Executivo</title>
+    <meta name="description" content="Área de login executivo para rastreamento de ativos da GMAC Execução de Ativos. Acompanhe o status do seu veículo com exclusividade.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Variáveis de Cor - TEMA GOLD EXECUTIVO */
+        /* Variáveis de Cor - TEMA GOLD EXECUTIVO REFINADO */
         :root {
-            --fundo-base: #F5F5F5; /* Cinza Claro */
-            --cor-principal: #333333; /* Texto Sólido */
+            --fundo-base: #e9ecef; /* Cinza Gelo Suave */
+            --cor-principal: #212529; /* Texto Escuro Sólido */
             --cor-destaque-gold: #B8860B; /* DOURADO EXECUTIVO */
-            --cor-alerta: #8B4513; /* Bronze/Oportunidade */
-            --cor-secundaria-bv: #004085; /* Azul Marinho Institucional */
+            --cor-alerta: #8B4513; /* Bronze para destaque */
+            --cor-secundaria-bv: #002D62; /* Azul Marinho Profundo (BV Financeira) */
             --cor-fundo-card: #FFFFFF;
             --cor-texto-claro: #6c757d;
-            --sombra-chique: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --sombra-elegante: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra mais acentuada */
         }
 
         /* Estilos Globais */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif; /* Fonte mais executiva */
             margin: 0;
             padding: 0;
             background-color: var(--fundo-base);
             color: var(--cor-principal);
             line-height: 1.6;
-            display: flex; /* Para centralizar o conteúdo verticalmente */
-            justify-content: center; /* Para centralizar o conteúdo horizontalmente */
-            align-items: center; /* Para centralizar o conteúdo verticalmente */
-            min-height: 100vh; /* Ocupa a altura total da viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             flex-direction: column;
         }
 
         .login-container {
             background-color: var(--cor-fundo-card);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--sombra-chique);
+            padding: 50px; /* Mais espaçamento interno */
+            border-radius: 12px; /* Cantos mais suaves */
+            box-shadow: var(--sombra-elegante);
             width: 100%;
-            max-width: 400px; /* Largura máxima do formulário */
+            max-width: 450px; /* Um pouco mais largo */
             text-align: center;
-            border-top: 5px solid var(--cor-destaque-gold);
+            border-top: 6px solid var(--cor-destaque-gold); /* Borda dourada mais proeminente */
+            position: relative; /* Para possíveis decorações */
+            overflow: hidden; /* Garante que bordas arredondadas funcionem bem com pseudo-elementos */
         }
+        
+        /* Detalhe dourado no topo */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px; /* Mesma altura da border-top */
+            background: linear-gradient(to right, var(--cor-destaque-gold) 0%, #FFD700 50%, var(--cor-destaque-gold) 100%);
+            z-index: 1;
+        }
+
 
         .login-container h2 {
             color: var(--cor-secundaria-bv);
-            margin-bottom: 30px;
-            font-size: 2em;
+            margin-bottom: 25px;
+            font-size: 2.2em;
             font-family: 'Arial Black', sans-serif;
+            letter-spacing: 0.05em; /* Espaçamento entre letras */
+            text-transform: uppercase;
         }
 
-        .login-container p {
+        .login-container .subtitulo {
             color: var(--cor-texto-claro);
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+            font-size: 1.1em;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px; /* Mais espaçamento entre grupos */
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+            margin-bottom: 10px;
+            font-weight: 600; /* Mais negrito */
             color: var(--cor-principal);
+            font-size: 1.05em;
         }
 
         .form-control {
-            width: calc(100% - 20px); /* Ajusta a largura com padding */
-            padding: 12px 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            box-sizing: border-box; /* Inclui padding na largura total */
+            width: calc(100% - 24px); /* Ajusta a largura com padding */
+            padding: 14px 12px; /* Mais padding */
+            border: 1px solid #ced4da; /* Borda mais suave */
+            border-radius: 7px; /* Cantos ligeiramente mais arredondados */
+            font-size: 1.05em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-control:focus {
-            border-color: var(--cor-destaque-gold);
-            outline: none;
-            box-shadow: 0 0 0 0.2rem rgba(184, 134, 11, 0.25);
-        }
-
-        .login-button {
-            display: inline-block;
-            background-color: var(--cor-destaque-gold); /* DOURADO */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px; /* Botão arredondado */
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-            width: 100%; /* Ocupa a largura total do container */
-            margin-top: 10px;
-        }
-
-        .login-button:hover {
-            background-color: #a07909; /* Dourado mais escuro */
-            transform: translateY(-2px);
-        }
-
-        .link-cadastro {
-            margin-top: 25px;
-            font-size: 0.9em;
-        }
-
-        .link-cadastro a {
-            color: var(--cor-secundaria-bv);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .link-cadastro a:hover {
-            text-decoration: underline;
-        }
-
-        /* Rodapé simplificado para a página de login */
-        .footer-login {
-            margin-top: 30px;
-            color: var(--cor-texto-claro);
-            font-size: 0.85em;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="login-container">
-        <h2><i class="fas fa-shipping-fast" style="color: var(--cor-destaque-gold); margin-right: 10px;"></i>RASTREAMENTO GMAC</h2>
-        <p>Insira seus dados para acompanhar o status do seu ativo veicular.</p>
-
-        <form action="#" method="POST"> <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-            </div>
-            <div class="form-group">
-                <label for="referencia">Número de Referência/Pacto:</label>
-                <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Ex: GMAC-2024-XXXX" required>
-            </div>
-            <button type="submit" class="login-button">RASTREAR AGORA</button>
-        </form>
-
-        <p class="link-cadastro">
-            Ainda não tem um número de referência? <a href="sua-pagina-de-cadastro.html">Inicie seu cadastro aqui</a>.
-        </p>
-    </div>
-
-    <footer class="footer-login">
-        <p>&copy; 2024 GMAC EXECUÇÃO DE ATIVOS. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
+            
