@@ -204,16 +204,16 @@
         <p>&copy; 2024 GMAC EXECUÇÃO DE ATIVOS. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
+        <script>
         document.getElementById('trackingForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
-            // Você pode adicionar aqui uma validação básica dos campos antes do alert
             const cpf = document.getElementById('cpf').value;
             const referencia = document.getElementById('referencia').value;
 
             if (cpf && referencia) {
-                alert('O rastreamento estará disponível após o pagamento antecipado do frete.');
+                // AQUI ESTÁ A MENSAGEM CORRIGIDA:
+                alert('Rastreamento disponível após o pagamento do valor pendente.'); 
                 // Opcional: Limpar os campos após o alert
                 // document.getElementById('cpf').value = '';
                 // document.getElementById('referencia').value = '';
@@ -222,5 +222,6 @@
             }
         });
     </script>
+
 </body>
 </html>
